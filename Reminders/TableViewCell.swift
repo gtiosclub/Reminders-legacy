@@ -14,7 +14,7 @@ class TableViewCell: UITableViewCell, UITextFieldDelegate {
     
     var reminderItems:ReminderItem? {
         didSet {
-            label.text = reminderItems!.itemName as String?
+            label.text = reminderItems!.itemName
         }
     }
     let leftMarginForLabel: CGFloat = 15.0
@@ -26,7 +26,7 @@ class TableViewCell: UITableViewCell, UITextFieldDelegate {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         // 1
-        label = UITextField(frame: CGRect.null)
+        label = UITextField(frame: .null)
         label.textColor = UIColor.black
         label.font = UIFont.systemFont(ofSize: 16)
         
@@ -49,9 +49,7 @@ class TableViewCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if reminderItems != nil {
             reminderItems?.itemName = textField.text
-        }
         return true
     }
 
