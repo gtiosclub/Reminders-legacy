@@ -50,7 +50,7 @@ class TableViewCell: UITableViewCell, UITextFieldDelegate {
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         if reminderItems != nil {
-            reminderItems?.itemName = textField.text as NSString?
+            reminderItems?.itemName = textField.text
         }
         return true
     }

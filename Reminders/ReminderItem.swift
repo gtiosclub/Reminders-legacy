@@ -8,14 +8,13 @@
 
 import UIKit
 
-class ReminderItem: NSObject {
+class ReminderItem: AnyObject {
     
-    var itemName : NSString?
+    var itemName : String?
     var completed : Bool = false
     
     init(name:String) {
-        self.itemName = name as NSString?
-        
+        self.itemName = name
     }
     
 

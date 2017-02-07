@@ -28,6 +28,7 @@ class AddItemVC: UIViewController {
     @IBAction func doneButtonSelected(_ sender: Any) {
         if (self.textField.text?.utf16.count)! > 0{
             self.item = ReminderItem(name: self.textField.text!)
+            self.item?.completed = false
             itemsArray.append(self.item!)
             _ = navigationController?.popViewController(animated: true)
         }

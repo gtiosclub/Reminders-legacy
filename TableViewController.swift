@@ -15,10 +15,6 @@ class TableViewController: UITableViewController {
     
     //@IBOutlet var tableView: UITableView!
     
-    
-    
-    var completed = false
-    
    
 
     
@@ -59,6 +55,12 @@ class TableViewController: UITableViewController {
         let item = itemsArray[indexPath.row]
         cell.reminderItems = item
         cell.selectionStyle = UITableViewCellSelectionStyle.none
+        if (item.completed) {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
+        //cell.accessoryType = .none
         //cell.accessoryType = UITableViewCellAccessoryCheckmark
         
         return cell
@@ -75,17 +77,17 @@ class TableViewController: UITableViewController {
             //item = completedItem
             let cell = tableView.cellForRow(at: editActionsForRowAt)
             //completedItem.completed = !completedItem.completed
-            if (!completedItem.completed) {
+            if (completedItem.completed) {
                 //self.title = "Complete"
                 cell?.accessoryType = .checkmark
-                completedItem.completed = true
+                completedItem.completed = false
                 //self.completed = true
             } else {
                 cell?.accessoryType = .none
-                completedItem.completed = false
+                completedItem.completed = true
                 //self.completed = false
             }
-            print(self.completed)
+            //print(self.completed)
             tableView.reloadData()
             
             
@@ -94,6 +96,7 @@ class TableViewController: UITableViewController {
         complete.backgroundColor = .green
         
         let delete = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
+            itemsArray[editActionsForRowAt.row].completed = false
             itemsArray.remove(at: editActionsForRowAt.row)
             tableView.deleteRows(at: [editActionsForRowAt], with: .fade)
             //tableView.reloadData()
