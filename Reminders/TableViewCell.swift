@@ -27,13 +27,13 @@ class TableViewCell: UITableViewCell, UITextFieldDelegate {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         // 1
         label = UITextField(frame: .null)
-        label.textColor = UIColor.black
-        label.font = UIFont.systemFont(ofSize: 16)
+        label.textColor = .black
+        label.font = .systemFont(ofSize: 16)
         
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         // 2
         label.delegate = self
-        label.contentVerticalAlignment = UIControlContentVerticalAlignment.center
+        label.contentVerticalAlignment = .center
         // 3
         addSubview(label)
         
