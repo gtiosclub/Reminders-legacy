@@ -16,8 +16,15 @@ class AddItemVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(AddItemVC.dismissKeyboard))
+        view.addGestureRecognizer(tap)
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        textField.becomeFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,11 +32,19 @@ class AddItemVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
     @IBAction func doneButtonSelected(_ sender: Any) {
-        if (self.textField.text?.utf16.count)! > 0{
-            self.item = ReminderItem(name: self.textField.text!)
-            self.item?.completed = false
-            itemsArray.append(self.item!)
+        if let text = self.textField.text,
+            !text.isEmpty {
+            let item = ReminderItem(name: text)
+            item.completed = false
+            itemsArray.append(item)
+            self.item = item
+            
             _ = navigationController?.popViewController(animated: true)
         }
         

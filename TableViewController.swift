@@ -88,7 +88,8 @@ class TableViewController: UITableViewController {
                 //self.completed = false
             }
             //print(self.completed)
-            tableView.reloadData()
+            //tableView.reloadData()
+            tableView.reloadRows(at: [index], with: .right)
             
             
             
