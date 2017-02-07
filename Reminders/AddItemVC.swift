@@ -41,7 +41,7 @@ class AddItemVC: UIViewController {
         if let text = self.textField.text,
             !text.isEmpty {
             let item = ReminderItem(name: text)
-            item.completed = false
+            //item.completed = false
             itemsArray.append(item)
             self.item = item
             

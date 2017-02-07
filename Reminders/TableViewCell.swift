@@ -39,6 +39,7 @@ class TableViewCell: UITableViewCell, UITextFieldDelegate {
         
     }
     
+    //required by UITableViewCell
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -53,8 +54,8 @@ class TableViewCell: UITableViewCell, UITextFieldDelegate {
         return true
     }
 
-
-    override func awakeFromNib() {
+    //When an object receives an awakeFromNib message, it is guaranteed to have all its outlet and action connections already established.
+   /* override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
@@ -63,6 +64,6 @@ class TableViewCell: UITableViewCell, UITextFieldDelegate {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-    }
+    }*/
 
 }

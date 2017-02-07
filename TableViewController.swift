@@ -14,10 +14,6 @@ var itemsArray = [ReminderItem]()
 class TableViewController: UITableViewController {
     
     //@IBOutlet var tableView: UITableView!
-    
-   
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(TableViewCell.self, forCellReuseIdentifier: "tableCell")
